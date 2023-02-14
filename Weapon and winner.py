@@ -42,3 +42,4 @@ def kombat(player1, player2):
         return
 
 kombat(player1,player2)
+

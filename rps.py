@@ -12,11 +12,11 @@
 #------------------------------------- Region Main -------------------------------------------------------------------
 
 #------------------------------------- End Region Main ----------------------------------------------------------------
-import random, sys, CPU
+import random, sys, CPU 
 def rockmenu():
     print("hi welcome to rock paper scissors")
     #print("")
-    var2=int(input("please select 1 for single player, or 2 for multiplayer, or 3 to Quit"))
+    var2=int(input("please select 1 for single player, 2 for multiplayer, 3 to Quit, or 4 for instructions"))
     if var2 == 1:
         singleplayer()
     if var2 == 2:
@@ -43,15 +43,35 @@ def singleplayer():
     wintotalply = str(player1win)
     wintotalai = str(aiwin)
     print ("The score is "+ var +": "+ wintotalply + " And AI has: " + wintotalai)
-    var2=input("Do you want to play again?")
-    if var == 'Y':
+    var2=input("Do you want to play again? Y for yes, N no.")
+    if var2 == 'y':
         singleplayer()
-    if var == "N":
+    if var2 == "n":
         rockmenu()
 
 
 def multiplayer():
-    var=input("what is player1 name: ")
-    var2=input("what is player2 name: ")
+    player1win = 0
+    player2win = 0
+    var=input("what is player 1 name: ")
+    var2=input("what is player 2 name: ")
+    player1=CPU.waponplr()
+    player2=CPU.waponplr()
+    winner =CPU.kombat(player1,player2)
+    if winner == 'player1':
+        player1win=player1win+1
+    elif winner == 'player2':
+        player2win=player2win+1
+    elif winner == 'tie':
+        player1win=player1win+1
+        player2win=player2win+1
+    wintotalply1 = str(player1win)
+    wintotalply2 = str(player2win)
+    print ("The score is: "+ var +" has: "+ wintotalply1 +" And "+ var2 +" has: " + wintotalply2)
+    var3=input("Do you want to play again? Y for yes, N no.")
+    if var3 == 'y':
+        multiplayer()
+    if var3 == "n":
+        rockmenu()
 
 rockmenu()

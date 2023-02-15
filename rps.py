@@ -12,7 +12,7 @@
 #------------------------------------- Region Main -------------------------------------------------------------------
 
 #------------------------------------- End Region Main ----------------------------------------------------------------
-import random, sys
+import random, sys, CPU
 def rockmenu():
     print("hi welcome to rock paper scissors")
     #print("")
@@ -29,9 +29,9 @@ def singleplayer():
     player1win=0
     aiwin=0
     var=input("what is your name: ")
-    player=waponplr()
+    player=CPU.waponplr()
     ai=random.randint(1,3)
-    winner = kombat(player, ai)
+    winner =CPU.kombat(player, ai)
     if winner == 'player1':
         player1win=player1win+1
     elif winner == 'player2':
@@ -39,7 +39,10 @@ def singleplayer():
     elif winner == 'tie':
         player1win=player1win+1
         aiwin=aiwin+1
-    print ("The score is "+ var +": "+ player1win + " And AI has: " + aiwin)
+    
+    wintotalply = str(player1win)
+    wintotalai = str(aiwin)
+    print ("The score is "+ var +": "+ wintotalply + " And AI has: " + wintotalai)
     var2=input("Do you want to play again?")
     if var == 'Y':
         singleplayer()
@@ -50,3 +53,5 @@ def singleplayer():
 def multiplayer():
     var=input("what is player1 name: ")
     var2=input("what is player2 name: ")
+
+rockmenu()

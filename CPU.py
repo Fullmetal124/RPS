@@ -28,30 +28,29 @@ def cpu():
         return 3
     
 
-player1=waponplr()
-player2=cpu()
+
 
 def kombat(player1, player2):
     if player1 == player2:
         print("This is a tie")
-        return
+        return 'tie'
     elif player1 == 1 and player2 == 2:
-        print("CPU wins!!")
-        return
+        print("Player 2 wins!!")
+        return 'player2'
     elif player1 == 1 and player2 == 3:
         print("Player 1 wins!!")
-        return
+        return 'player1'
     elif player1 == 2 and player2 == 1:
         print("Player 1 wins!!")
-        return
+        return 'player1'
     elif player1 == 2 and player2 == 3:
-        print("CPU wins!!")
-        return
+        print("Player 2 wins!!")
+        return 'player2'
     elif player1 == 3 and player2 == 1:
-        print("CPU wins!!")
-        return
+        print("Player 2 wins!!")
+        return 'player2'
     elif player1 == 3 and player2 == 2:
         print("Player 1 wins!!")
-        return
+        return 'player1'
 
-kombat(player1,player2)
+

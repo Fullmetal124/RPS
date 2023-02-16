@@ -23,6 +23,15 @@ def rockmenu():
         multiplayer()
     if var2 == 3:
         sys.exit()
+    if var2 == 4:
+        print("Rock-Paper-Scissors is a game played to settle disputes between two people. ")
+    print("Thought to be a game of chance that depends on random luck similar to flipping coins or drawing straws, ")
+    print("the game is often taught to children to help them settle arguments between themselves on their own without adult intervention. ")
+    print("However, the game actually can be a game that has an element of skill that requires quick thinking and perceptive reasoning.1")
+    print("The game is played with three possible hand signals that represent a rock, paper, and scissors. Due to this version being played via the ")
+    print("terminal, we won't be using hand signals.  Rock wins against scissors; paper wins against rock; ")
+    print("and scissors wins against paper. If both players throw the same hand signal, it is considered a tie and both players get a point, make sure the other player doesn't see what you've chosen.")
+    rockmenu()
     
 
 def singleplayer():

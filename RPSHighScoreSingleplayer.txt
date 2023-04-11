@@ -2,8 +2,8 @@ Rock Paper Scissors High Scores!
 
 Player 1 High score:
 
-2
+0
 
-Player 2 High score:
+CPU High score:
 
-2
+1

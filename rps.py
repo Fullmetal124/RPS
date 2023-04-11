@@ -37,15 +37,11 @@ def rockmenu():
 def singleplayer():
     try:    
         with open('RPSHighScoreSingleplayer.txt','x') as f:
-            f.write("Rock Paper Scissors High Scores!\n")
-            f.write("\n")
-            f.write("Player 1 High score:\n")
-            f.write("\n")
-            f.write("0\n")
-            f.write("\n")
-            f.write("CPU High score:\n")
-            f.write("\n")
-            f.write("0\n")
+            f.write("Rock Paper Scissors High Scores!\n\n")
+            f.write("Player 1 High score:\n\n")
+            f.write("0\n\n")
+            f.write("CPU High score:\n\n")
+            f.write("0")
             f.close()
 
         
@@ -56,10 +52,9 @@ def singleplayer():
         for i in range(4):
             f.readline()
         hiplayerSwin = int(f.readline().strip())
-        for i in range(2):
+        for i in range(3):
             f.readline()
         hiplayerCPUwin = int(f.readline().strip())
-        hslinesS = f.readlines()
 
     player1win=0
     aiwin=0
@@ -69,22 +64,26 @@ def singleplayer():
     winner =CPU.kombat(player, ai)
     if winner == 'player1':
         player1win=player1win+1
-        hslinesS[4] = str(player1win+hiplayerSwin), "\n"
-        with open('RPSHighScoreSinglepayer.txt','w') as f:
-            f.writelines(hslinesS)
+        hiplayerSwin = player1win+hiplayerSwin
+
     elif winner == 'player2':
         aiwin=aiwin+1
-        hslinesS[7] = str(aiwin+hiplayerCPUwin), "\n"
-        with open('RPSHighScoreSinglepayer.txt','w') as f:
-            f.writelines(hslinesS)
+        hiplayerCPUwin = aiwin+hiplayerCPUwin
+
     elif winner == 'tie':
         player1win=player1win+1
         aiwin=aiwin+1
-        hslinesS[4] = str(player1win+hiplayerSwin), "\n"
-        hslinesS[7] = str(aiwin+hiplayerCPUwin), "\n"
-        with open('RPSHighScoreSinglepayer.txt','w') as f:
-            f.writelines(hslinesS)
-    
+        hiplayerSwin = player1win+hiplayerSwin
+        hiplayerCPUwin = aiwin+hiplayerCPUwin
+        
+
+    with open('RPSHighScoreSingleplayer.txt','w') as f:
+            f.write("Rock Paper Scissors High Scores!\n\n")
+            f.write("Player 1 High score:\n\n")
+            f.write(str(hiplayerSwin) + "\n\n")
+            f.write("CPU High score:\n\n")
+            f.write(str(hiplayerCPUwin))
+
     wintotalply = str(player1win)
     wintotalai = str(aiwin)
     print ("The score is "+ var +": "+ wintotalply + " And AI has: " + wintotalai)
@@ -103,14 +102,11 @@ def singleplayer():
 def multiplayer():
     try:    
         with open('RPSHighScoreMultiplayer.txt','x') as f:
-            f.write("Rock Paper Scissors High Scores!\n")
-            f.write("\n")
-            f.write("Player 1 High score:\n")
-            f.write("\n")
-            f.write("0\n")
-            f.write("Player 2 High score:\n")
-            f.write("\n")
-            f.write("0\n")
+            f.write("Rock Paper Scissors High Scores!\n\n")
+            f.write("Player 1 High score:\n\n")
+            f.write("0\n\n")
+            f.write("Player 2 High score:\n\n")
+            f.write("0")
             f.close()
 
         
@@ -121,10 +117,9 @@ def multiplayer():
         for i in range(4):
             f.readline()
         hiplayer1win = int(f.readline().strip())
-        for i in range(2):
+        for i in range(3):
             f.readline()
         hiplayer2win = int(f.readline().strip())
-        hslines = f.readlines()
 
 
     player1win = 0
@@ -137,21 +132,22 @@ def multiplayer():
     winner =CPU.kombat(player1,player2)
     if winner == 'player1':
         player1win=player1win+1
-        hslines[4] = str(player1win+hiplayer1win), "\n"
-        with open('RPSHighScoreMultiplayer.txt','w') as f:
-            f.writelines(hslines)
+        hiplayer1win = player1win + hiplayer1win
     elif winner == 'player2':
         player2win=player2win+1
-        hslines[7] = str(player2win+hiplayer2win), "\n"
-        with open('RPSHighScoreMultiplayer.txt','w') as f:
-            f.writelines(hslines)
+        hiplayer2win = hiplayer2win+player2win
     elif winner == 'tie':
         player1win=player1win+1
         player2win=player2win+1
-        hslines[4] = str(player1win+hiplayer1win), "\n"
-        hslines[7] = str(player2win+hiplayer2win), "\n"
-        with open('RPSHighScoreMultiplayer.txt','w') as f:
-            f.writelines(hslines)
+        hiplayer1win = player1win + hiplayer1win
+        hiplayer2win = hiplayer2win+player2win
+    with open('RPSHighScoreMultiplayer.txt','w') as f:
+        f.write("Rock Paper Scissors High Scores!\n\n")
+        f.write("Player 1 High score:\n\n")
+        f.write(str(hiplayer1win) + "\n\n")
+        f.write("Player 2 High score:\n\n")
+        f.write(str(hiplayer2win))
+
     wintotalply1 = str(player1win)
     wintotalply2 = str(player2win)
     print ("The score is: "+ var +" has: "+ wintotalply1 +" And "+ var2 +" has: " + wintotalply2)
